@@ -51,5 +51,5 @@ func Parse(addr string, last *[8]string) []string {
 			l++
 		}
 	}
-	return result
+	return result[:i]
 }
