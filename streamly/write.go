@@ -43,3 +43,12 @@ func Write(file *os.File, prefix string, list []string) {
 		(*chunk).Close()
 	}
 }
+
+func WriteAll(file *os.File, prefix string, list []string) {
+	length := len(list)
+
+	for i := 4; i < length; i += 4 {
+		current := list[i-4 : i]
+		Write(file, prefix, current)
+	}
+}

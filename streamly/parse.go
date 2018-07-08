@@ -2,8 +2,10 @@ package streamly
 
 import (
 	"bufio"
+	"fmt"
 	"net/http"
 	"strings"
+	"time"
 )
 
 func getM3u(url string) *bufio.Reader {
@@ -49,6 +51,39 @@ func Parse(addr string, last *[8]string) []string {
 			}
 			last[l] = s
 			l++
+		}
+	}
+	return result[:i]
+}
+
+func ParseRecord(addr string, start time.Duration) []string {
+	reader := getM3u(addr)
+	result := make([]string, 0)
+	i := 0
+	now := time.Duration(0 * time.Second)
+	skip := false
+
+	for i < 2400 {
+		r, _, e := reader.ReadLine()
+		if e != nil {
+			break
+		}
+		s := string(r)
+
+		if start != 0 && strings.Contains(s, "#EXTINF") {
+			skip = false
+
+			var t float32
+			fmt.Sscanf(s, "#EXTINF:%f,", &t)
+			now += time.Duration(t) * time.Second
+
+			if now < start {
+				skip = true
+			}
+
+		} else if !strings.ContainsRune(s, '#') && !skip {
+			result = append(result, s)
+			i++
 		}
 	}
 	return result[:i]
