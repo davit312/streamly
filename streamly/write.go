@@ -17,7 +17,6 @@ func Write(file *os.File, prefix string, list []string) {
 		defer func() { fatched <- true }()
 		conn, err := http.Get(address)
 		if err != nil {
-			println(777)
 			log.Println(err)
 			data[index] = nil
 			return
@@ -45,7 +44,7 @@ func Write(file *os.File, prefix string, list []string) {
 }
 
 func WriteAll(file *os.File, prefix string, list []string) {
-	length := len(list) + 5
+	length := len(list) + 4
 
 	for i := 4; i < length; i += 4 {
 		current := list[i-4 : i]
