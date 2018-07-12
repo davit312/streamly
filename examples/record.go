@@ -12,6 +12,6 @@ func main() {
 	if e != nil {
 		return
 	}
-	list := streamly.ParseRecord("http://amtv1.livestreamingcdn.com/am1abr/tracks-v1a1/index-1531037700-3900.m3u8", 35*time.Minute)
-	streamly.WriteAll(f, "http://amtv1.livestreamingcdn.com/am1abr/tracks-v1a1/", list)
+	list := streamly.ParseRecord("http://amtv1.livestreamingcdn.com/am1abr/tracks-v2a1/index-1531414800-7800.m3u8", 10*time.Minute)
+	streamly.WriteAll(f, "http://amtv1.livestreamingcdn.com/am1abr/tracks-v2a1/", list)
 }

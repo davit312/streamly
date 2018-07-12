@@ -45,7 +45,7 @@ func Write(file *os.File, prefix string, list []string) {
 }
 
 func WriteAll(file *os.File, prefix string, list []string) {
-	length := len(list)
+	length := len(list) + 5
 
 	for i := 4; i < length; i += 4 {
 		current := list[i-4 : i]
