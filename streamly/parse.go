@@ -63,7 +63,7 @@ func ParseRecord(addr string, start time.Duration) []string {
 	now := time.Duration(0 * time.Second)
 	skip := false
 
-	for i < 2400 {
+	for i < 10500 {
 		r, _, e := reader.ReadLine()
 		if e != nil {
 			break
