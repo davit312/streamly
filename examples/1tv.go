@@ -12,7 +12,7 @@ func main() {
 
 	playlist := flag.String("list", "", "playlist url")
 	startAt := flag.String("start", "0", "start record at minute")
-	prefix := flag.String("prefix", "http://amtv1.livestreamingcdn.com/am1abr/tracks-v2a1/", "source to download video chunks")
+	prefix := flag.String("prefix", "http://amtv1.livestreamingcdn.com/am1abr/tracks-v1a1/", "source to download video chunks")
 	fileName := flag.String("out", "out.ts", "output file address")
     flag.Parse()
 
