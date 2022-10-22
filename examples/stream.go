@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"os"
-	"streamly"
+	"github.com/davit312/streamly"
 	"time"
 )
 

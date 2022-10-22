@@ -2,8 +2,9 @@ package main
 
 import (
 	"os"
-	"streamly"
 	"time"
+
+	"github.com/davit312/streamly"
 )
 
 func main() {

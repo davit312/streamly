@@ -2,7 +2,7 @@ package main
 
 import (
 	"os"
-	"streamly"
+	"github.com/davit312/streamly"
 	"time"
 	"flag"
 	"log"
